@@ -1,1 +1,1 @@
-web: gunicorn lgtools:app --log-file -
+web: gunicorn skewtweb:app --log-file -
