@@ -1,10 +1,10 @@
-flask==0.12
-jinja2==2.9.5
+flask==0.12.2
+jinja2==2.10
 gunicorn==19.7.1
 wtforms==2.1
-plotly==2.0.12
 numpy==1.13.1
 flask-wtf==0.14.2
 metpy==0.7.0
 siphon==0.6.1
+pandas=0.22.0
 matplotlib==2.1.1
