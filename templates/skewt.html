@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="jumbotron">
+    <div class="container">
+      <h1>Skew-T</h1>
+      <p>Plot and Analyze Upper Air Observations</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Soundings</h2>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6" id='plot_id'>
+        <img src="skewt/skewt_fig{{datarequest}}" alt="SkewT" height=600>
+      </div>
+      <div class="col-md-6" id='plot_id'>
+        <img src="skewt/hodograph_fig{{datarequest}}" alt="Hodograph" height=300>
+      </div>
+      <div class="col-md-2" id='data_controls_left'>
+            <form method="POST" action="/skewt">
+              {{ data_selector_form.csrf_token }}
+
+              <div class="form-group">
+                <label for="datefield">Date</label>
+                {{ data_selector_form.datefield(class_="form-control") }}
+                <small id="datefieldHelp" class="form-text text-muted"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="timefield">Time</label>
+                {{ data_selector_form.timefield(class_="form-control") }}
+                <small id="timefieldHelp" class="form-text text-muted"></small>
+              </div>
+</div>
+<div class="col-md-2" id='data_controls_right'>
+              <div class="form-group">
+                <label for="regionfield">Region</label>
+                {{ data_selector_form.regionfield(class_="form-control") }}
+                <small id="regionfieldHelp" class="form-text text-muted"></small>
+              </div>
+
+              <div class="form-group">
+                <label for="stationfield">Station</label>
+                {{ data_selector_form.stationfield(class_="form-control") }}
+                <small id="stationfieldHelp" class="form-text text-muted"></small>
+              </div>
+
+              <div class="form-group">
+                <input class="btn btn-primary" type="submit" value="Show">
+              </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4">
+          <h2>How it Works</h2>
+          This app fetches sounding data from the University of Wyoming
+          archive and displays it, as well as accompanying calculations
+          using MetPy and Flask.
+        </div>
+      </div>
+
+  </div>
+
+  {% endblock %}
